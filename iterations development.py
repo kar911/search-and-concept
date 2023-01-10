@@ -1,5 +1,8 @@
 #    This contains all the iterations for any help
 # every function is a iteration somewhat
+# here you can see the gradual progress of this algo form recursive to iterative
+# and more optimmized
+# at later stages of testing i used randomly generted sorted array for real life arrays replication
 
 def xx(arr,x,fp1=0,fn1=0,fa1=0,fa2=0): # add max fn,fn2
     # fn = fn or [l-fn]
