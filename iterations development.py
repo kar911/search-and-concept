@@ -1,5 +1,9 @@
 #    This contains all the iterations for any help
 # every function is a iteration somewhat
+
+# FIRST FEW ARE FOR CONCEPTUAL CORECTNESS
+# LATER THE ALGO WAS IMPROVED TO OTHER FORM
+
 # here you can see the gradual progress of this algo form recursive to iterative
 # and more optimmized
 # at later stages of testing i used randomly generted sorted array for real life arrays replication
