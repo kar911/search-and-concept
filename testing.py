@@ -1,4 +1,5 @@
 import more_itertools as mm
+from timeit import default_timer as  timer
 arr=mm.random_combination(range(1,10005000),r=10000000)
 l=len(arr)
 del mm
@@ -670,3 +671,58 @@ del arr
 #-- [(8e-06, 3509911), (9e-06, 3470840), (7e-06, 1301997), (1e-05, 1255872), (6e-06, 164787), (1.1e-05, 153997), (1.2e-05, 17312), (1.3e-05, 16759), (1.4e-05, 16544), (1.5e-05, 14752)]
 #8.612052388861593e-06 0.00010612799997034017 4.276000254321843e-06
 #
+
+
+arr=mm.random_combination(range(1,10005000),r=10000000)
+l=len(arr)
+del mm
+f1=3
+f11=13
+f21=55
+while (f21 < l):
+    f1,f11,f21=f11,f21,(f21<<2)+f11  #----------------------
+print(arr[:10],l)
+print(f1,f11,f21)
+rp2=f21
+if l > ((f21+f11)>>1):
+    x=(f21<<2)+f11
+    f11=(f21+f11)>>1
+    rp2=(x+f21)>>1
+    print("hh")
+elif l > ((f21-f11)>>1):
+    f11=(f21-f11)>>1
+    rp2=((f21)<<1)-f11
+    print("dd")
+print(f11,rp2)
+l=l-1
+
+
+def kartik_strafe_s(arr,x,rp2,rp,l):
+    rn1=0
+    c2=rn1+rp
+    x2=arr[c2]
+    if x == arr[l]:
+        return l
+    gg=True
+    while(rp > 0 ):
+
+        if x > x2:
+            rn1=c2
+            if gg:
+                while ( rp > l-rn1):
+                    rp,rp2=rp2-(rp<<2),rp
+            gg=True
+        elif x < x2:
+            l=c2
+            rp,rp2=rp2-(rp<<2),rp
+            gg=False
+        else :
+            return c2            
+        c2=rn1+rp
+        x2=arr[c2]
+    else:
+        if x == arr[rn1]:
+            return rn1
+        elif l > rn1+1  and x == arr[rn1+1]:
+            return rn1+1
+        return -1
