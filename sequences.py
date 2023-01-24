@@ -19,6 +19,7 @@ for i in range(5,100):
     f1=fibb
     f2=fibb[i:]
     f3=fibb[i*2:]
+    print("-------------------------------------------------------------------------<< break")
     for j in range(len(f3)-1):
         if (round(f1[j]/f2[j],4)) == round(math.modf((f3[j]/f2[j]))[0],4):
             print('--------',i,"    ",(f1[j]/f2[j]),"    ",(f3[j]/f2[j]),"    ",f3[j],"    ",f2[j],"    ",f1[j],"    ",math.modf((f3[j]/f2[j]))[0],"    ",(f3[j]//f2[j]))
