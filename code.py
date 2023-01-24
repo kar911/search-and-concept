@@ -16,34 +16,32 @@ rp2=f21
 def kartik_strafe_s(arr,x,rp2,rp,l):
     rn1=0
     c2=rn1+rp
-    x2=arr[c2]
     if x == arr[l]:
         return l
     gg=True
     while(rp > 0 ):
-        if x < x2:
-            l=c2
-            rp,rp2=rp2-(rp<<2),rp
-            gg=False
-        elif x > x2:
+        if x > arr[c2]:
             rn1=c2
             if gg:
                 while ( rp > l-rn1):
                     rp,rp2=rp2-(rp<<2),rp
             gg=True
 
+        elif x < arr[c2]:
+            l=c2
+            rp,rp2=rp2-(rp<<2),rp
+            gg=False
         else :
             return c2            
         c2=rn1+rp
-        x2=arr[c2]
     else:
         
-        if x == arr[rn1+rp+1]:
-            return rn1+rp+1
+        if x == arr[rn1]:
+            return rn1
         return -1
 
 
-print(arr[:10],l)
+# print(arr[:10],l)
 
 #print("kartik_strafe_s 3 13","\n")
 #print("---------------------------AVG tim")
